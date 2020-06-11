@@ -23,28 +23,35 @@
 raw_month = input('Enter the month of the year: ')
 month = raw_month[0:3]
 day = input('Enter the day of the month: ')
+season = ''
 
 if month in ('Jan', 'Feb'):
     season = 'Winter'
-    print(f'{month} {day} is in {season}')
 elif month in ('Apr', 'May'):
     season = 'Spring'
-    print(f'{month} {day} is in {season}')
 elif month in ('Jul', 'Aug'):
     season = 'Summer'
-    print(f'{month} {day} is in {season}')
 elif month in ('Oct', 'Nov'):
     season = 'Fall'
-    print(f'{month} {day} is in {season}')
-elif month == 'Dec' and int(day) >= 21 or month == 'Mar' and int(day) <= 19:
-    season = 'Winter'
-    print(f'{month} {day} is in {season}')
-elif month == 'Mar' and int(day) >= 20 or month == 'Jun' and int(day) <= 20:
-    season = 'Spring'
-    print(f'{month} {day} is in {season}')
-elif month == 'Jun' and int(day) >= 21 or month == 'Sep' and int(day) <= 21:
-    season = 'Summer'
-    print(f'{month} {day} is in {season}')
-elif month == 'Sep' and int(day) >= 22 or month == 'Dec' and int(day) <= 20:
-    season = 'Fall'
-    print(f'{month} {day} is in {season}')
+elif month == 'Dec':
+    if int(day) >= 21:
+        season = 'Winter'
+    else:
+        season = 'Fall'
+elif month == 'Mar':
+    if int(day) >= 20:
+        season = 'Spring'
+    else:
+        season = 'Winter'
+elif month == 'Jun':
+    if int(day) >= 21:
+        season = 'Summer'
+    else:
+        season = 'Spring'
+elif month == 'Sep':
+    if int(day) >= 22:
+        season = 'Fall'
+    else:
+        season = 'Summer'
+
+print(f'{month} {day} is in {season}')
